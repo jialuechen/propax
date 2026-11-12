@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "propax"
+version = "0.1.0"
+description = "Structure-preserving optimal execution with multi-exponential propagators, in JAX"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Jialue Chen" }]
+dependencies = ["jax>=0.4.30", "numpy>=1.24", "scipy>=1.10"]
+keywords = ["optimal execution", "market impact", "propagator", "jax", "quantitative finance"]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[tool.setuptools.packages.find]
+include = ["propax*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
