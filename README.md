@@ -37,7 +37,7 @@ This representation reduces the computational burden of portfolio optimization w
 ## Installation
 
 ```bash
-pip install -e .                 # Requires JAX, NumPy, SciPy
+pip install -e .                 
 pip install -e ".[test]" && pytest
 ```
 
@@ -58,7 +58,6 @@ import propax as px
 jax.config.update("jax_enable_x64", True)
 
 # Approximate G(tau) ~ tau^-0.5 from 1 minute to 1 trading day.
-# Time is measured in trading days.
 kernel = px.ExpKernel.from_power_law(
     0.5, 1 / 390, 1.0, amplitude=40.0
 )
@@ -92,7 +91,7 @@ greeks = jax.grad(
 )(sched)
 ```
 
-See `examples/` for liquidity clocks, portfolio execution with cross-impact, kernel calibration, and experiments reproducing Section 8 of the paper.
+See `examples/` for liquidity clocks, portfolio execution with cross-impact and kernel calibration.
 
 ## Features and Modules
 
@@ -135,3 +134,6 @@ Forward-mode differentiation (`jax.jvp` and `jax.jacfwd`) is not supported becau
 ## Status
 
 The library has been tested on synthetic data. Calibration using real metaorder data, including the associated identification challenges discussed in Section 7.3 of the paper, remains future work.
+
+## License
+This library is distributed under Apahce-2.0.
