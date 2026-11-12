@@ -6,7 +6,7 @@
 
 The nonnegative exponential weights preserve positive-definite impact costs under the model's assumptions, ensuring convex optimization and ruling out negative-cost round trips. The same structure enables O(K)-per-trade streaming updates, linear-time impact operators, and implicit differentiation of optimal execution schedules.
 
-The library implements *Structure-Preserving Optimal Execution with Multi-Exponential Propagators* (J. Chen, 2026). Section references below correspond to the paper.
+The library implements *Structure-Preserving Optimal Execution with Multi-Exponential Propagators* (J. Chen, 2026).
 
 ## Technical Highlights
 
@@ -130,10 +130,6 @@ Forward-mode differentiation (`jax.jvp` and `jax.jacfwd`) is not supported becau
 - **Portfolio optimization:** The portfolio solver uses conjugate gradients with a Jacobi preconditioner. Convergence depends on conditioning, and highly ill-conditioned problems may require improved preconditioning.
 - **Calibration:** Kernel estimation uses SciPy's exact NNLS implementation and runs outside JAX `jit`.
 - **Precision:** 64-bit floating-point arithmetic is recommended for reliable optimization and gradient calculations.
-
-## Status
-
-The library has been tested on synthetic data. Calibration using real metaorder data, including the associated identification challenges discussed in Section 7.3 of the paper, remains future work.
 
 ## License
 This library is distributed under Apahce-2.0.
