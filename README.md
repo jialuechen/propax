@@ -26,10 +26,11 @@ This enables reverse-mode sensitivities of optimal schedules and execution costs
 
 For multi-asset execution, `propax` represents cross-impact through low-rank factor structures:
 
-\[
-G(\tau)=\sum_{k=1}^{K}e^{-\lambda_k\tau}W_k,
-\qquad W_k=BM_kB^\top+D_k.
-\]
+$$
+G(\tau) = \sum_{k=1}^{K} e^{-\lambda_k \tau} W_k,
+\qquad
+W_k = B M_k B^\top + D_k.
+$$
 
 This representation reduces the computational burden of portfolio optimization while preserving the required impact-cost structure under suitable parameter constraints. Matrix-free operators and preconditioned conjugate gradients avoid constructing dense asset-by-time impact matrices.
 
